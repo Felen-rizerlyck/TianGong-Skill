@@ -1,6 +1,8 @@
-# PersonaGAN-Distill
+# PersonaForge
 
-`PersonaGAN-Distill` is a persona distillation workflow built on top of `nuwa-skill`, with an added GAN-style adversarial validation layer for improving distilled personality frameworks.
+> **Forge** — like a blacksmith's forge, where raw materials are repeatedly heated, hammered, and cooled to shape strong metal. Here, persona frameworks go through multi-round GAN-style adversarial iteration to be forged into sharper, more faithful form.
+
+`PersonaForge` is a persona distillation workflow built on top of `nuwa-skill`, with an added GAN-style adversarial validation layer for improving distilled personality frameworks.
 
 Instead of stopping at "collect materials -> summarize traits -> write a skill", this project introduces a `Generator / Discriminator` loop:
 
@@ -19,7 +21,7 @@ Instead of stopping at "collect materials -> summarize traits -> write a skill",
 
 Traditional persona distillation usually has one weak point: the extracted "personality" is easy to become generic, over-compressed, or loosely grounded in evidence.
 
-PersonaGAN-Distill addresses that by adding adversarial review during the extraction stage:
+PersonaForge addresses that by adding adversarial review during the extraction stage:
 
 1. Collect multi-source research data.
 2. Generate candidate mental models and style patterns.
@@ -35,7 +37,7 @@ The goal is not role-play for its own sake, but a more robust way to distill:
 
 ## Usage
 
-PersonaGAN-Distill is designed to be used with AI coding agents (such as opencode or codex) that can follow multi-step workflow instructions.
+PersonaForge is designed to be used with AI coding agents (such as opencode or codex) that can follow multi-step workflow instructions.
 
 ### Workflow Overview
 
@@ -48,7 +50,7 @@ PersonaGAN-Distill is designed to be used with AI coding agents (such as opencod
 ### Quick Start Example
 
 ```text
-User: Distill Sam Altman using the PersonaGAN-Distill workflow.
+User: Distill Sam Altman using the PersonaForge workflow.
 
 Agent: (Executes Phase 0.5 → Phase 1 with 6 parallel research agents → 
         Phase 1.5 checkpoint → Phase 2 synthesis → 
@@ -67,13 +69,14 @@ The output is a complete persona skill under `.claude/skills/[person-name]-persp
 ### Current Limitations
 
 - **Testing scope**: This workflow has only been tested with **opencode** and **codex** as the execution agents. Compatibility with other AI coding tools is unverified.
+- **Model generality**: All persona distillations to date have been generated using **Claude** as the underlying model. The framework has not been tested with other LLMs (GPT, Gemini, etc.), and output quality may vary across models.
 - **Project maturity**: This is a research/workflow project, not a packaged software product. Expect rough edges and missing automation.
 - **Optimization needed**: The pipeline works end-to-end but could benefit from better error handling, agent timeout management, and source validation automation.
 
 ## Repository Structure
 
 ```text
-PersonaGAN-Distill/
+PersonaForge/
 ├── README.md
 ├── SKILL.md
 ├── references/
@@ -85,15 +88,15 @@ PersonaGAN-Distill/
 │   ├── merge_research.py
 │   ├── quality_check.py
 │   └── srt_to_transcript.py
-└── docs/
-    └── archive/
+└── examples/
+    └── some distilled examples
 ```
 
 ## Notes
 
 - This repository is currently organized as a research/workflow project rather than a packaged software product.
 - Some original upstream presentation materials have been preserved under [docs/archive](/F:/nuwa-skill/docs/archive).
-- The current project name is temporarily `PersonaGAN-Distill`.
+- The project was previously named `PersonaGAN-Distill`.
 
 ## Acknowledgement
 
